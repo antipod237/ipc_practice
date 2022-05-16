@@ -7,8 +7,7 @@
 
 Таблицы базы данных: users, roles, permissions, purchases, item_sets, contracts_item_sets, contracts, suppliers, store items, stores, sales
 
-![database](https://user-images.githubusercontent.com/86552792/168611046-0a92b70a-6543-4d88-96e3-01247f6d6c44.png)
-
+![database](https://user-images.githubusercontent.com/86552792/168637484-fc8cd22b-c9a7-4dd7-82b8-e3e35cf883d4.jpg)
 
 # Ролевая модель системы для разных приложений системы
 
