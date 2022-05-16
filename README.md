@@ -1,8 +1,9 @@
 # ipc_practive
 Практика Интерпроком 2022
 
-• Придумать предприятие и создать диаграмму баз данных (users, roles, permissions считай уже есть) – минимум еще 6 таблиц
-
+Предприятие: xs5 retail group
+Предприятие имеет: Склад, номенклатуру, позиции, торговые точки, поставщиков, продажи, контракты, заявки, закупки
+Таблицы: users, roles, permissions, warehouse, item_sets, items, stores, suppliers, sales, contracts, purchase_orders, purchases
 
 • Ролевая модель системы для разных приложений системы
 
