@@ -1,6 +1,8 @@
 # ipc_practice
 Практика Интерпроком 2022
 
+• Предприятие и диаграмма баз данных
+
 Предприятие: "xs5 retail group"
 
 Таблицы: users, roles, permissions, purchases, item_sets, contracts_item_sets, contracts, suppliers, store items, stores, sales
