@@ -12,6 +12,7 @@
 
 • Ролевая модель системы для разных приложений системы
 
+![model](https://user-images.githubusercontent.com/86552792/168633591-e6970f2a-22dd-4f82-a81c-eaf85aef2b3b.png)
 
 • ТЗ
 
