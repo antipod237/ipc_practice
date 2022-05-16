@@ -20,6 +20,9 @@
 
 В основе будет:
  • БД – Postgres
+ 
  • Бэк – Python + Starlette
+ 
  • Клиент – js, react, reactadmin
+ 
  • Оценка качества кода – Flake 8
