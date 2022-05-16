@@ -1,0 +1,14 @@
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    temp,
+    logs,
+    .venv,
+    *.json,
+    old,
+    build,
+    dist,
+    migrations
+    tests
+max-complexity = 10
