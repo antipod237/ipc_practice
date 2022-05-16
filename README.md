@@ -1,4 +1,4 @@
-# ipc_practive
+# ipc_practise
 Практика Интерпроком 2022
 
 Предприятие: xs5 retail group
