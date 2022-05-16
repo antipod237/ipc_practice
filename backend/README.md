@@ -17,9 +17,14 @@ grant all privileges on database "erp_system_dev" to "erp_system_dev_user";
 
 ## Day-to-day setup
 
+
+### unix
+
 ```bash
 source .venv/bin/activate  # enter environment
 ```
+
+### windows
 
 ```PowerShell
 .\.venv\Scripts\Activate.ps1
