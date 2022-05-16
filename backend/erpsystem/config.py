@@ -26,6 +26,7 @@ DB_URL = URL(
     database=DB_DATABASE
 )
 
+
 def _cast_token_expires(value, unit='days'):
     try:
         return datetime.timedelta(**{unit: int(os.getenv(value))})

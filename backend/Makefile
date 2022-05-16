@@ -14,15 +14,15 @@ db-downgrade:
 
 
 test:
-	psql -c "drop database if exists adsystem_test" postgres
-	psql -c "drop user if exists adsystem_test_user" postgres
-	psql -c "create user adsystem_test_user with encrypted password 'adsystem_test_user'" postgres
-	psql -c "create database adsystem_test" postgres
-	TESTING=True python3 -m pytest --cov=adsystem
+	psql -c "drop database if exists erp_system_test" postgres
+	psql -c "drop user if exists erp_system_test_user" postgres
+	psql -c "create user erp_system_test_user with encrypted password 'erp_system_test_user'" postgres
+	psql -c "create database erp_system_test" postgres
+	TESTING=True python3 -m pytest --cov=erp_system
 
 test-ci:
-	sudo -u postgres psql -c "drop database if exists adsystem_test"
-	sudo -u postgres psql -c "drop user if exists adsystem_test_user"
-	sudo -u postgres psql -c "create user adsystem_test_user with encrypted password 'adsystem_test_user'"
-	sudo -u postgres psql -c "create database adsystem_test"
-	TESTING=True python3 -m pytest --cov=adsystem
+	sudo -u postgres psql -c "drop database if exists erp_system_test"
+	sudo -u postgres psql -c "drop user if exists erp_system_test_user"
+	sudo -u postgres psql -c "create user erp_system_test_user with encrypted password 'erp_system_test_user'"
+	sudo -u postgres psql -c "create database erp_system_test"
+	TESTING=True python3 -m pytest --cov=erp_system

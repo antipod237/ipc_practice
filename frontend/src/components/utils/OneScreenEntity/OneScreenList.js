@@ -9,7 +9,7 @@ const OneScreenList = ({
   onCreate,
   children,
   ...props
-}) => console.log(props) || (
+}) => (
   <List
     title={title}
     empty={empty}
