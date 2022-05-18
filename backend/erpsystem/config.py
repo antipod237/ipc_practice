@@ -64,9 +64,9 @@ MEDIA_URI = os.getenv('MEDIA_URI')
 TESTING = bool(os.getenv('TESTING', False))
 
 if TESTING:
-    DB_USER = 'erp_system_dev_user'
-    DB_PASSWORD = 'erp_system_dev_user'
-    DB_DATABASE = 'erp_system_dev'
+    DB_USER = 'erp_system_test_user'
+    DB_PASSWORD = 'erp_system_test_user'
+    DB_DATABASE = 'erp_system_test'
 
     DB_URL = URL(
         drivername='postgresql',
