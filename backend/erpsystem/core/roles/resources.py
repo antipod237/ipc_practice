@@ -1,6 +1,6 @@
 from starlette.routing import Route
-from ..utils import jwt_required, make_list_response, get_one
-from ..models import RoleModel
+from erpsystem.core.utils import jwt_required, make_list_response, get_one
+from erpsystem.core.models import RoleModel
 
 
 @jwt_required(return_user=False)

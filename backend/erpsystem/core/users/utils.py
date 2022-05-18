@@ -1,4 +1,4 @@
-from ..models import RoleModel, UserModel
+from erpsystem.core.models import RoleModel, UserModel
 
 
 async def is_username_unique(username):

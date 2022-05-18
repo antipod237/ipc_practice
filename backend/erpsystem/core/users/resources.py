@@ -5,14 +5,14 @@ from starlette.routing import Route
 from starlette.endpoints import HTTPEndpoint
 from passlib.hash import pbkdf2_sha256 as sha256
 
-from ..database import db
-from ..utils import (
+from erpsystem.core.database import db
+from erpsystem.core.utils import (
     with_transaction, create_refresh_token, create_access_token, jwt_required,
     make_error, Permissions, validation, GinoQueryHelper, make_list_response,
     make_response, NO_CONTENT, get_one,
 )
-from ..models import UserModel, PermissionAction
-from .utils import is_username_unique, validate_role
+from erpsystem.core.models import UserModel, PermissionAction
+from erpsystem.core.utils import is_username_unique, validate_role
 
 permissions = Permissions(app_name='users')
 

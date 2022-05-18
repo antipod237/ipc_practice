@@ -1,4 +1,4 @@
-from ..database import db
+from erpsystem.core.database import db
 
 
 class UserModel(db.Model):

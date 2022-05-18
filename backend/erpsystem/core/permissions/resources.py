@@ -1,7 +1,7 @@
 from starlette.responses import JSONResponse
 
-from ..utils import jwt_required
-from ..models import PermissionModel
+from erpsystem.core.utils import jwt_required
+from erpsystem.core.models import PermissionModel
 
 
 @jwt_required
