@@ -9,7 +9,7 @@ class SupplierModel(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     phone_number = db.Column(db.String(12), unique=True, nullable=False)
     address = db.Column(db.String(120), nullable=False)
-    
+
     def jsonify(self):
         return {
             'id': self.id,
@@ -18,4 +18,3 @@ class SupplierModel(db.Model):
             'phone_number': self.phone_number,
             'address': self.address,
         }
-        
