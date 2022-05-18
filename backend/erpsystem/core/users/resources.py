@@ -11,8 +11,9 @@ from erpsystem.core.utils import (
     make_error, Permissions, validation, GinoQueryHelper, make_list_response,
     make_response, NO_CONTENT, get_one,
 )
-from erpsystem.core.models import UserModel, PermissionAction
-from erpsystem.core.utils import is_username_unique, validate_role
+from .models import UserModel
+from .utils import is_username_unique, validate_role
+from erpsystem.core.permissions.models import PermissionAction
 
 permissions = Permissions(app_name='users')
 
