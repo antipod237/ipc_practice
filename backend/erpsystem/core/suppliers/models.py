@@ -18,3 +18,4 @@ class SupplierModel(db.Model):
             'phone_number': self.phone_number,
             'address': self.address,
         }
+        
