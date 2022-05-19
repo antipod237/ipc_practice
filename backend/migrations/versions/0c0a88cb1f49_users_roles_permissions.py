@@ -67,6 +67,18 @@ def upgrade():
                 'display_name': 'Администратор',
             },
             {
+                'name': 'sales department',
+                'display_name': 'Отдел продаж',
+            },
+            {
+                'name': 'logistics department',
+                'display_name': 'Отдел логистики',
+            },
+            {
+                'name': 'purchasing department',
+                'display_name': 'Отдел закупок',
+            },
+            {
                 'name': 'demo',
                 'display_name': 'Демо',
             },
@@ -77,10 +89,49 @@ def upgrade():
         sa.insert(t_permissions).values([
             # admin
             {'app_name': 'users', 'action': 'all', 'role_id': 1},
-            {'app_name': 'problems', 'action': 'all', 'role_id': 1},
+            {'app_name': 'stores', 'action': 'all', 'role_id': 1},
+            {'app_name': 'sales', 'action': 'all', 'role_id': 1},
+            {'app_name': 'contracts', 'action': 'all', 'role_id': 1},
+            {'app_name': 'suppliers', 'action': 'all', 'role_id': 1},
+            {'app_name': 'purchases', 'action': 'all', 'role_id': 1},
+            {'app_name': 'store_items', 'action': 'all', 'role_id': 1},
 
-            # demo
+            #sales department
             {'app_name': 'users', 'action': 'get', 'role_id': 2},
+            {'app_name': 'stores', 'action': 'get', 'role_id': 2},
+            {'app_name': 'sales', 'action': 'create', 'role_id': 2},
+            {'app_name': 'sales', 'action': 'update', 'role_id': 2},
+            {'app_name': 'contracts', 'action': 'get', 'role_id': 2},
+            {'app_name': 'suppliers', 'action': 'get', 'role_id': 2},
+            {'app_name': 'purchases', 'action': 'get', 'role_id': 2},
+            {'app_name': 'store_items', 'action': 'all', 'role_id': 2},
+
+            #logistics department
+            {'app_name': 'users', 'action': 'get', 'role_id': 3},
+            {'app_name': 'stores', 'action': 'get', 'role_id': 3},
+            {'app_name': 'sales', 'action': 'get', 'role_id': 3},
+            {'app_name': 'contracts', 'action': 'get', 'role_id': 3},
+            {'app_name': 'suppliers', 'action': 'get', 'role_id': 3},
+            {'app_name': 'purchases', 'action': 'get', 'role_id': 3},
+            {'app_name': 'store_items', 'action': 'update', 'role_id': 3},
+
+            #purchasing department
+            {'app_name': 'users', 'action': 'get', 'role_id': 4},
+            {'app_name': 'stores', 'action': 'get', 'role_id': 4},
+            {'app_name': 'sales', 'action': 'get', 'role_id': 4},
+            {'app_name': 'contracts', 'action': 'all', 'role_id': 4},
+            {'app_name': 'suppliers', 'action': 'all', 'role_id': 4},
+            {'app_name': 'purchases', 'action': 'all', 'role_id': 4},
+            {'app_name': 'store_items', 'action': 'get', 'role_id': 4},
+            
+            # demo
+            {'app_name': 'users', 'action': 'get', 'role_id': 5},
+            {'app_name': 'stores', 'action': 'get', 'role_id': 5},
+            {'app_name': 'sales', 'action': 'get', 'role_id': 5},
+            {'app_name': 'contracts', 'action': 'get', 'role_id': 5},
+            {'app_name': 'suppliers', 'action': 'get', 'role_id': 5},
+            {'app_name': 'purchases', 'action': 'get', 'role_id': 5},
+            {'app_name': 'store_items', 'action': 'get', 'role_id': 5},
         ])
     )
 
@@ -96,13 +147,40 @@ def upgrade():
                 'role_id': 1,
             },
             {
-                'username': 'demo',
-                'password': sha256.hash('demo'),
-                'email': 'demo@erpsystem.ru',
-                'display_name': 'Дмитрий',
+                'username': 'sales department',
+                'password': sha256.hash('sales_department'),
+                'email': 'salesdepartment@erpsystem.ru',
+                'display_name': 'Отдел продаж',
                 'session': str(uuid4()),
                 'deactivated': False,
                 'role_id': 2,
+            },
+            {
+                'username': 'logistics department',
+                'password': sha256.hash('sales_department'),
+                'email': 'logisticsdepartment@erpsystem.ru',
+                'display_name': 'Отдел логистики',
+                'session': str(uuid4()),
+                'deactivated': False,
+                'role_id': 3,
+            },
+            {
+                'username': 'purchasing department',
+                'password': sha256.hash('purchasing_department'),
+                'email': 'purchasingdepartment@erpsystem.ru',
+                'display_name': 'Отдел закупок',
+                'session': str(uuid4()),
+                'deactivated': False,
+                'role_id': 4,
+            },
+            {
+                'username': 'demo',
+                'password': sha256.hash('demo'),
+                'email': 'demo@erpsystem.ru',
+                'display_name': 'Демо',
+                'session': str(uuid4()),
+                'deactivated': False,
+                'role_id': 5,
             },
         ])
     )
