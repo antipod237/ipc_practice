@@ -2,11 +2,11 @@ from validate_email import validate_email
 
 from starlette.routing import Route
 from starlette.endpoints import HTTPEndpoint
-from passlib.hash import pbkdf2_sha256 as sha256
 
 from ..database import db
 from ..utils import (
-    with_transaction, jwt_required, make_error, Permissions, validation, GinoQueryHelper,
+    with_transaction, jwt_required, make_error,
+    validation, GinoQueryHelper, Permissions,
     make_list_response, make_response, NO_CONTENT, get_one,
 )
 from ..models import SupplierModel, PermissionAction
@@ -127,8 +127,7 @@ class Supplier(HTTPEndpoint):
         'address': {
             'type': str,
         },
-    }, 
-    custom_checks={
+    }, custom_checks={
         'email': {
             'func': lambda v, *args: validate_email(v),
             'message': lambda v, *args: f'`{v}` не является корректной электро'

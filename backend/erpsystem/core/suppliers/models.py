@@ -10,7 +10,7 @@ class SupplierModel(db.Model):
     phone_number = db.Column(db.String(12), unique=True, nullable=False)
     address = db.Column(db.String(120), nullable=False)
 
-    def jsonify(self, for_card = True):
+    def jsonify(self, for_card=True):
         return {
             'id': self.id,
             'name': self.name,
@@ -18,7 +18,6 @@ class SupplierModel(db.Model):
             'phone_number': self.phone_number,
             'address': self.address,
         }
-
 
     @classmethod
     async def get_by_identifier(cls, identifier):
