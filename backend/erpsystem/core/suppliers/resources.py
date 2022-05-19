@@ -147,11 +147,11 @@ class Supplier(HTTPEndpoint):
             'name': data['name']
             if 'name' in data else None,
             'email': data['email']
-             if 'email' in data else None,
+            if 'email' in data else None,
             'phone_number': data['phone_number']
-             if 'phone_number' in data else None,
+            if 'phone_number' in data else None,
             'address': data['address']
-             if 'address' in data else None,
+            if 'address' in data else None,
         }
 
         values = dict(filter(lambda item: item[1] is not None, values.items()))
