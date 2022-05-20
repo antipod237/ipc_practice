@@ -6,11 +6,11 @@ class PasswordPolicy():
         self.special = special
 
     def test(self, password):
-         l = len(password)
-         u = sum(i.isupper() for i in password)
-         n = sum(i.isdigit() for i in password)
-         s = l - n - sum(i.isalpha () for i in password)
-         if (l >= self.length and u >= self.uppercase and n >= self.numbers and s >= self.special): 
+        leng = len(password)
+        upper = sum(i.isupper() for i in password)
+        number = sum(i.isdigit() for i in password)
+        spec = leng - number - sum(i.isalpha () for i in password)
+        if (leng >= self.length and upper >= self.uppercase
+            and number >= self.numbers and spec >= self.special):
             return True
-         return False
-
+        return False
