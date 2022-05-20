@@ -10,7 +10,7 @@ class PasswordPolicy():
          u = sum(i.isupper() for i in password)
          n = sum(i.isdigit() for i in password)
          s = l - n - sum(i.isalpha () for i in password)
-         if (l >= self.length & u >= self.uppercase & n >= self.numbers & s >= self.special): 
+         if (l >= self.length and u >= self.uppercase and n >= self.numbers and s >= self.special): 
             return True
          return False
 
