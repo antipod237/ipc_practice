@@ -1,5 +1,5 @@
 from ..models import RoleModel, UserModel
-from password_strength import PasswordPolicy
+from .password_strength import PasswordPolicy
 
 
 async def is_username_unique(username):
