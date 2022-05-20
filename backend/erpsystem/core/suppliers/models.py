@@ -1,4 +1,4 @@
-from erpsystem.core.database import db
+from ..database import db
 
 
 class SupplierModel(db.Model):
