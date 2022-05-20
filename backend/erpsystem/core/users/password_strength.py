@@ -13,3 +13,4 @@ class PasswordPolicy():
          if (l >= self.length & u >= self.uppercase & n >= self.numbers & s >= self.special): 
             return True
          return False
+
