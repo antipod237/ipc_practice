@@ -6,7 +6,7 @@ from ..utils import (
     with_transaction, jwt_required, make_error,
     validation, GinoQueryHelper, Permissions,
     make_list_response, make_response, NO_CONTENT,
-    get_one, get_date, 
+    get_one, get_date,
 )
 from ..models import ContractModel, PermissionAction
 
