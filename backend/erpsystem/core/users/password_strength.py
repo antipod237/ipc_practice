@@ -9,8 +9,8 @@ class PasswordPolicy():
         leng = len(password)
         upper = sum(i.isupper() for i in password)
         number = sum(i.isdigit() for i in password)
-        spec = leng - number - sum(i.isalpha () for i in password)
-        if (leng >= self.length and upper >= self.uppercase
-            and number >= self.numbers and spec >= self.special):
+        spec = leng - number - sum(i.isalpha() for i in password)
+        if (leng >= self.length and upper >= self.uppercase and
+                number >= self.numbers and spec >= self.special):
             return True
         return False

@@ -17,6 +17,5 @@ async def validate_role(role_id, *args):
 
 
 def validate_password(password, *args):
-    policy = PasswordPolicy(8,1,1,1)
+    policy = PasswordPolicy(8, 1, 1, 1)
     return (policy.test(password))
-    
