@@ -81,7 +81,8 @@ class Contracts(HTTPEndpoint):
     }, custom_checks={
         'supplier_id': {
             'func': lambda v, *args: is_supplier_exists(v),
-            'message': lambda v, *args: f'Поставщик с `id` `{v}` не существует.'
+            'message': lambda v, *args: f'Поставщик с `id` `{v}`'
+            f' не существует.'
         }
     })
     async def post(self, data):
@@ -126,12 +127,13 @@ class Contract(HTTPEndpoint):
         'supplier_id': {
             'required': True,
             'type': int,
-        'supplier_id': True
+            'supplier_id': True
         }
         }, custom_checks={
             'supplier_id': {
                 'func': lambda v, *args: is_supplier_exists(v),
-                'message': lambda v, *args: f'Поставщик с `id` `{v}` не существует.'
+                'message': lambda v, *args: f'Поставщик с `id` `{v}`'
+                f' не существует.'
             },
     }, return_request=True)
     async def patch(self, request, data):
