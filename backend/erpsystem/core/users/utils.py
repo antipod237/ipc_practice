@@ -21,6 +21,6 @@ def validate_password(password, *args):
         length=8,
         uppercase=2,
         numbers=2,
-        special=2
+        special=2,
     )
     return not bool(policy.test(password))
