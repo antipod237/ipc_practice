@@ -1,7 +1,7 @@
 """users roles permissions
 
 Revision ID: 0c0a88cb1f49
-Revises: 
+Revises:
 Create Date: 2021-03-02 23:37:50.026704
 
 """
