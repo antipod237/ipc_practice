@@ -27,7 +27,7 @@ class Contracts(HTTPEndpoint):
 
         if 'search' in query_params:
             current_query, total_query = GinoQueryHelper.search(
-                ContractModel.number,
+                ContractModel.id,
                 query_params['search'],
                 current_query,
                 total_query
@@ -46,7 +46,6 @@ class Contracts(HTTPEndpoint):
                 'supplier_id': ContractModel.supplier_id,
             }
         )
-        print(ContractModel.start_date)
         total = await total_query.gino.scalar()
         items = await current_query.gino.all()
 

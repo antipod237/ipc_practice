@@ -17,5 +17,5 @@ routes = [
     Mount('/users', routes=user_routes),
     Mount('/roles', routes=roles_routes),
     Mount('/suppliers', routes=suppliers_routes),
-    Mount('/contracts', routes=contracts_routes)
+    Mount('/contracts', routes=contracts_routes),
 ]
