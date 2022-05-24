@@ -1,7 +1,7 @@
 """users roles permissions
 
 Revision ID: 0c0a88cb1f49
-Revises: 
+Revises:
 Create Date: 2021-03-02 23:37:50.026704
 
 """
@@ -95,6 +95,7 @@ def upgrade():
             {'app_name': 'suppliers', 'action': 'all', 'role_id': 1},
             {'app_name': 'purchases', 'action': 'all', 'role_id': 1},
             {'app_name': 'store_items', 'action': 'all', 'role_id': 1},
+            {'app_name': 'item_sets', 'action': 'all', 'role_id': 1},
 
             #sales department
             {'app_name': 'users', 'action': 'get', 'role_id': 2},
@@ -105,6 +106,7 @@ def upgrade():
             {'app_name': 'suppliers', 'action': 'get', 'role_id': 2},
             {'app_name': 'purchases', 'action': 'get', 'role_id': 2},
             {'app_name': 'store_items', 'action': 'all', 'role_id': 2},
+            {'app_name': 'item_sets', 'action': 'get', 'role_id': 2},
 
             #logistics department
             {'app_name': 'users', 'action': 'get', 'role_id': 3},
@@ -114,6 +116,7 @@ def upgrade():
             {'app_name': 'suppliers', 'action': 'get', 'role_id': 3},
             {'app_name': 'purchases', 'action': 'get', 'role_id': 3},
             {'app_name': 'store_items', 'action': 'update', 'role_id': 3},
+            {'app_name': 'item_sets', 'action': 'get', 'role_id': 3},
 
             #purchasing department
             {'app_name': 'users', 'action': 'get', 'role_id': 4},
@@ -123,6 +126,7 @@ def upgrade():
             {'app_name': 'suppliers', 'action': 'all', 'role_id': 4},
             {'app_name': 'purchases', 'action': 'all', 'role_id': 4},
             {'app_name': 'store_items', 'action': 'get', 'role_id': 4},
+            {'app_name': 'item_sets', 'action': 'all', 'role_id': 4},
             
             # demo
             {'app_name': 'users', 'action': 'get', 'role_id': 5},
@@ -132,6 +136,7 @@ def upgrade():
             {'app_name': 'suppliers', 'action': 'get', 'role_id': 5},
             {'app_name': 'purchases', 'action': 'get', 'role_id': 5},
             {'app_name': 'store_items', 'action': 'get', 'role_id': 5},
+            {'app_name': 'item_sets', 'action': 'get', 'role_id': 5},
         ])
     )
 
