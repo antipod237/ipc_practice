@@ -3,6 +3,7 @@ from .users.models import UserModel
 from .permissions.models import PermissionModel, PermissionAction
 from .suppliers.models import SupplierModel
 from .contracts.models import ContractModel
+from .stores.models import StoresModel
 
 __all__ = [
     'UserModel',
@@ -11,4 +12,5 @@ __all__ = [
     'PermissionAction',
     'SupplierModel',
     'ContractModel',
+    'StoresModel',
 ]
