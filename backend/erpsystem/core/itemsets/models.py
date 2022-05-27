@@ -25,15 +25,6 @@ class ItemSetModel(db.Model):
             'name': self.name,
         }
 
-        if self.contracts:
-            result['contracts'] = [
-                {
-                    'id': contract.id,
-                    'number': contract.number
-                }
-                for contract in self.contracts
-            ]
-
         return result
 
 

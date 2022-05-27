@@ -128,20 +128,27 @@ class ItemSet(HTTPEndpoint):
     async def patch(self, request, data):
         item_set_id = request.path_params['id']
         item_set = await ItemSetModel.get(item_set_id)
+        try:
+            if not item_set:
+                return make_error(
+                    f'Item set with id {item_set_id} not found',
+                    status_code=404
+                )
 
-        if not item_set:
+            values = {
+                'name': data['name'] if 'name' in data else None
+            }
+
+            await item_set.update(**values).apply()
+
+            if 'contracts' in data:
+                await change_contracts(data['contracts'], item_set_id)
+
+        except Exception as e:
             return make_error(
-                f'Item set with id {item_set_id} not found', status_code=404
+                e.args[0],
+                status_code=400
             )
-
-        values = {
-            'name': data['name'] if 'name' in data else None
-        }
-
-        await item_set.update(**values).apply()
-
-        if 'contracts' in data:
-            await change_contracts(data['contracts'], item_set_id)
 
         return NO_CONTENT
 
