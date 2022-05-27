@@ -16,9 +16,3 @@ class StoresModel(db.Model):
             'phone_number': self.phone_number,
             'email': self.email,
         }
-
-    @classmethod
-    async def get_by_indentifier(cls, identifier):
-        return await cls.query.where(
-            (cls.id == identifier)
-        ).gino.first()

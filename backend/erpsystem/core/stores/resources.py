@@ -89,8 +89,6 @@ class Store(HTTPEndpoint):
             'Магазин'
         )
 
-    # TODO: make this method for admin only
-
     @with_transaction
     @jwt_required
     @permissions.required(action=PermissionAction.UPDATE)
