@@ -4,6 +4,7 @@ from .permissions.models import PermissionModel, PermissionAction
 from .suppliers.models import SupplierModel
 from .contracts.models import ContractModel
 from .stores.models import StoresModel
+from .itemsets.models import ItemSetModel, ContractItemSetModel
 
 __all__ = [
     'UserModel',
@@ -13,4 +14,6 @@ __all__ = [
     'SupplierModel',
     'ContractModel',
     'StoresModel',
+    'ItemSetModel',
+    'ContractItemSetModel',
 ]
