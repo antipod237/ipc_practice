@@ -19,19 +19,11 @@ class ItemSetModel(db.Model):
     def contracts(self, value):
         self._contracts.add(value)
 
-    def jsonify(self, for_card=False):
+    def jsonify(self, for_card=True):
         result = {
             'id': self.id,
             'name': self.name,
         }
-
-        if for_card:
-            result['contract'] = [
-                {
-                    'contract_id': contract.contract_id
-                }
-                for contract in self.contracts
-            ]
 
         return result
 
