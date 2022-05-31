@@ -9,9 +9,6 @@ class PurchaseModel(db.Model):
         db.Integer, db.ForeignKey('item_sets.id'), nullable=False
     )
     value = db.Column(db.Integer, nullable=False)
-    store_id = db.Column(
-        db.Integer, db.ForeignKey('stores.id'), nullable=False
-    )
     date = db.Column(db.Date(), nullable=False)
     user_id = db.Column(
         db.Integer, db.ForeignKey('users.id'), nullable=False
@@ -21,16 +18,11 @@ class PurchaseModel(db.Model):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self._item_sets = None
-        self._stores = None
         self._users = None
 
     @property
     def item_sets(self):
         return self._item_sets
-
-    @property
-    def stores(self):
-        return self._stores
 
     @property
     def users(self):
@@ -39,10 +31,6 @@ class PurchaseModel(db.Model):
     @item_sets.setter
     def item_set(self, value):
         self._item_set = value
-
-    @stores.setter
-    def store(self, value):
-        self._store = value
 
     @users.setter
     def user(self, value):
@@ -70,13 +58,6 @@ class PurchaseModel(db.Model):
                     'username': user.display_name,
                 }
                 for user in self.users
-            ]
-            result['store'] = [
-                {
-                    'store_id': store.id,
-                    'store_address': store.address
-                }
-                for store in self.stores
             ]
 
         return result

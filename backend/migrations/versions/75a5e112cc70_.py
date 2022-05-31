@@ -22,12 +22,10 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('item_set_id', sa.Integer(), nullable=False),
     sa.Column('value', sa.Integer(), nullable=False),
-    sa.Column('store_id', sa.Integer(), nullable=False),
     sa.Column('date', sa.Date(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('is_complete', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['item_set_id'], ['item_sets.id'], ),
-    sa.ForeignKeyConstraint(['store_id'], ['stores.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -40,7 +38,6 @@ def upgrade():
             {
                 'item_set_id': 1,
                 'value': 3,
-                'store_id': 1,
                 'date': '2021-01-01',
                 'user_id': 1,
                 'is_complete': True
