@@ -26,7 +26,7 @@ class ItemSetModel(db.Model):
         }
 
         if for_card:
-            result['contract'] = [
+            result['contracts'] = [
                 {
                     'contract_id': contract.contract_id
                 }
