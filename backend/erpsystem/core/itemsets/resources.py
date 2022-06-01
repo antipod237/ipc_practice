@@ -126,6 +126,7 @@ class ItemSet(HTTPEndpoint):
         }
     }, return_request=True)
     async def patch(self, request, data):
+        data = await request.json()
         item_set_id = request.path_params['id']
         item_set = await ItemSetModel.get(item_set_id)
         try:
@@ -139,18 +140,18 @@ class ItemSet(HTTPEndpoint):
                 'name': data['name'] if 'name' in data else None
             }
 
-            await item_set.update(**values).apply()
-
             if 'contracts' in data:
                 await change_contracts(data['contracts'], item_set_id)
+
+            await item_set.update(**values).apply()
+
+            return NO_CONTENT
 
         except Exception as e:
             return make_error(
                 e.args[0],
                 status_code=400
             )
-
-        return NO_CONTENT
 
 
 routes = [

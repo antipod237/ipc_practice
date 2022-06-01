@@ -3,7 +3,7 @@ from ..models import ContractItemSetModel
 
 
 async def change_contracts(contracts, item_set_id, is_create=False):
-    contract_ids = [contract['id'] for contract in contracts]
+    contract_ids = [contract['contract_id'] for contract in contracts]
 
     if len(contracts) == 0:
         await ContractItemSetModel.delete.where(
@@ -28,15 +28,15 @@ async def change_contracts(contracts, item_set_id, is_create=False):
                     ~ (ContractItemSetModel.contract_id.in_(contract_ids))
                 ).gino.status()
 
-            models_ids = [model.id for model in contracts_exist]
+            models_ids = [model.contract_id for model in contracts_exist]
 
             result = []
 
             for contract in contracts:
-                if contract["id"] not in models_ids:
+                if contract["contract_id"] not in models_ids:
                     result.append({
-                        'contract_id': contract['id'],
                         'item_set_id': item_set_id,
+                        'contract_id': contract['contract_id']
                     })
 
             if result:
