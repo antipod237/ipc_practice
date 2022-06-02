@@ -9,6 +9,10 @@ import ContractCreate from './components/Contracts/ContractCreate';
 import ContractEdit from './components/Contracts/ContractEdit';
 import ContractList from './components/Contracts/ContractList';
 import ContractShow from './components/Contracts/ContractShow';
+import SuppliersCreate from './components/Suppliers/SuppliersCreate';
+import SuppliersList from './components/Suppliers/SuppliersList';
+import SuppliersEdit from './components/Suppliers/SuppliersEdit';
+import SuppliersShow from './components/Suppliers/SuppliersShow';
 import RoleList from './components/Roles/RoleList';
 import RoleShow from './components/Roles/RoleShow';
 import UserCreate from './components/Users/UserCreate';
@@ -53,6 +57,16 @@ const App = () => (
           create={checkAppAction(permissions.users, 'create') ? ContractCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? ContractEdit : null}
           options={{ label: 'Договоры' }}
+        />
+      ) : null,
+      permissions.users ? (
+        <Resource
+          name="suppliers"
+          list={SuppliersList}
+          show={SuppliersShow}
+          create={checkAppAction(permissions.users, 'create') ? SuppliersCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? SuppliersEdit : null}
+          options={{ label: 'Партнеры' }}
         />
       ) : null,
     ]}
