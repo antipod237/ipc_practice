@@ -9,6 +9,10 @@ import ContractCreate from './components/Contracts/ContractCreate';
 import ContractEdit from './components/Contracts/ContractEdit';
 import ContractList from './components/Contracts/ContractList';
 import ContractShow from './components/Contracts/ContractShow';
+import ItemSetsList from './components/Item_sets/ItemSetsList';
+import ItemSetsShow from './components/Item_sets/ItemSetsShow';
+import ItemSetsEdit from './components/Item_sets/ItemSetsEdit';
+import ItemSetsCreate from './components/Item_sets/ItemSetsCreate';
 import RoleList from './components/Roles/RoleList';
 import RoleShow from './components/Roles/RoleShow';
 import UserCreate from './components/Users/UserCreate';
@@ -53,6 +57,26 @@ const App = () => (
           create={checkAppAction(permissions.users, 'create') ? ContractCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? ContractEdit : null}
           options={{ label: 'Договоры' }}
+        />
+      ) : null,
+      permissions.users ? (
+        <Resource
+          name="itemsets"
+          list={ItemSetsList}
+          show={ItemSetsShow}
+          create={checkAppAction(permissions.users, 'create') ? ItemSetsCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? ItemSetsEdit : null}
+          options={{ label: 'Номенклатура' }}
+        />
+      ) : null,
+      permissions.users ? (
+        <Resource
+          name="itemsets"
+          list={ItemSetsList}
+          show={ItemSetsShow}
+          create={checkAppAction(permissions.users, 'create') ? ItemSetsCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? ItemSetsEdit : null}
+          options={{ label: 'Номенклатура' }}
         />
       ) : null,
     ]}
