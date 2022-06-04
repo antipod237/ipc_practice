@@ -9,6 +9,10 @@ import ContractCreate from './components/Contracts/ContractCreate';
 import ContractEdit from './components/Contracts/ContractEdit';
 import ContractList from './components/Contracts/ContractList';
 import ContractShow from './components/Contracts/ContractShow';
+import SuppliersCreate from './components/Suppliers/SuppliersCreate';
+import SuppliersList from './components/Suppliers/SuppliersList';
+import SuppliersEdit from './components/Suppliers/SuppliersEdit';
+import SuppliersShow from './components/Suppliers/SuppliersShow';
 import ItemSetsList from './components/Item_sets/ItemSetsList';
 import ItemSetsShow from './components/Item_sets/ItemSetsShow';
 import ItemSetsEdit from './components/Item_sets/ItemSetsEdit';
@@ -61,12 +65,12 @@ const App = () => (
       ) : null,
       permissions.users ? (
         <Resource
-          name="itemsets"
-          list={ItemSetsList}
-          show={ItemSetsShow}
-          create={checkAppAction(permissions.users, 'create') ? ItemSetsCreate : null}
-          edit={checkAppAction(permissions.users, 'update') ? ItemSetsEdit : null}
-          options={{ label: 'Номенклатура' }}
+          name="suppliers"
+          list={SuppliersList}
+          show={SuppliersShow}
+          create={checkAppAction(permissions.users, 'create') ? SuppliersCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? SuppliersEdit : null}
+          options={{ label: 'Партнеры' }}
         />
       ) : null,
       permissions.users ? (
