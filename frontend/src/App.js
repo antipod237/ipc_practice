@@ -13,6 +13,10 @@ import SuppliersCreate from './components/Suppliers/SuppliersCreate';
 import SuppliersList from './components/Suppliers/SuppliersList';
 import SuppliersEdit from './components/Suppliers/SuppliersEdit';
 import SuppliersShow from './components/Suppliers/SuppliersShow';
+import ItemSetsList from './components/Item_sets/ItemSetsList';
+import ItemSetsShow from './components/Item_sets/ItemSetsShow';
+import ItemSetsEdit from './components/Item_sets/ItemSetsEdit';
+import ItemSetsCreate from './components/Item_sets/ItemSetsCreate';
 import RoleList from './components/Roles/RoleList';
 import RoleShow from './components/Roles/RoleShow';
 import UserCreate from './components/Users/UserCreate';
@@ -67,6 +71,16 @@ const App = () => (
           create={checkAppAction(permissions.users, 'create') ? SuppliersCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? SuppliersEdit : null}
           options={{ label: 'Партнеры' }}
+        />
+      ) : null,
+      permissions.users ? (
+        <Resource
+          name="itemsets"
+          list={ItemSetsList}
+          show={ItemSetsShow}
+          create={checkAppAction(permissions.users, 'create') ? ItemSetsCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? ItemSetsEdit : null}
+          options={{ label: 'Номенклатура' }}
         />
       ) : null,
     ]}
