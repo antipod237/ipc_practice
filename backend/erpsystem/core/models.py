@@ -6,6 +6,7 @@ from .contracts.models import ContractModel
 from .stores.models import StoresModel
 from .itemsets.models import ItemSetModel, ContractItemSetModel
 from .purchases.models import PurchaseModel
+from .store_items.models import StoreItemsModel
 
 __all__ = [
     'UserModel',
@@ -18,4 +19,5 @@ __all__ = [
     'ItemSetModel',
     'ContractItemSetModel',
     'PurchaseModel',
+    'StoreItemsModel',
 ]
