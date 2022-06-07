@@ -11,7 +11,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision = '75a5e112cc70'
-down_revision = 'd87c93d06e00'
+down_revision = '3384f42ab4dc'
 branch_labels = None
 depends_on = None
 
@@ -23,9 +23,11 @@ def upgrade():
     sa.Column('item_set_id', sa.Integer(), nullable=False),
     sa.Column('value', sa.Integer(), nullable=False),
     sa.Column('date', sa.Date(), nullable=False),
+    sa.Column('store_item_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('is_complete', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['item_set_id'], ['item_sets.id'], ),
+    sa.ForeignKeyConstraint(['store_item_id'], ['store_items.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -39,6 +41,7 @@ def upgrade():
                 'item_set_id': 1,
                 'value': 3,
                 'date': '2021-01-01',
+                'store_item_id': 1,
                 'user_id': 1,
                 'is_complete': True
             },
