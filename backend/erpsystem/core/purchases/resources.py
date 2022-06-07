@@ -64,8 +64,9 @@ class Purchases(HTTPEndpoint):
 
         exeption_value = data['value']
         return make_error(
-        f'Невозможно добавить {exeption_value}, сделайте колличество меньше',
-        status_code=400
+            f'Невозможно добавить {exeption_value}, '
+            f'сделайте колличество меньше',
+            status_code=400
         )
 
     @jwt_required
@@ -212,9 +213,9 @@ class Purchase(HTTPEndpoint):
 
             exeption_value = data['value']
             return make_error(
-            f'Невозможно добавить {exeption_value}, '
-            f'сделайте колличество меньше',
-            status_code=400
+                f'Невозможно добавить {exeption_value}, '
+                f'сделайте колличество меньше',
+                status_code=400
             )
 
         except Exception as exeption:
