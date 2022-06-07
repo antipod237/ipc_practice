@@ -7,6 +7,7 @@ from .suppliers.resources import routes as suppliers_routes
 from .contracts.resources import routes as contracts_routes
 from .stores.resources import routes as stores_routes
 from .itemsets.resources import routes as item_sets_routes
+from .purchases.resources import routes as purchases_routes
 from .permissions.resources import get_apps
 
 
@@ -22,4 +23,5 @@ routes = [
     Mount('/contracts', routes=contracts_routes),
     Mount('/stores', routes=stores_routes),
     Mount('/itemsets', routes=item_sets_routes),
+    Mount('/purchases', routes=purchases_routes),
 ]
