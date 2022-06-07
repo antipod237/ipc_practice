@@ -58,21 +58,21 @@ class PurchaseModel(db.Model):
         }
 
         if for_card:
-            result['item_set'] = [
+            result['item_sets'] = [
                 {
                     'item_set_id': item_set.id,
                     'name': item_set.name
                 }
                 for item_set in self.item_set
             ]
-            result['store_item'] = [
+            result['store_items'] = [
                 {
                     'store_item_id': store_item.id,
                     'name': store_item.name,
                 }
                 for store_item in self.store_items
             ]
-            result['user'] = [
+            result['users'] = [
                 {
                     'user_id': user.id,
                     'username': user.display_name,
