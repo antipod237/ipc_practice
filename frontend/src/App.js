@@ -21,6 +21,10 @@ import ItemSetsList from './components/Item_sets/ItemSetsList';
 import ItemSetsShow from './components/Item_sets/ItemSetsShow';
 import ItemSetsEdit from './components/Item_sets/ItemSetsEdit';
 import ItemSetsCreate from './components/Item_sets/ItemSetsCreate';
+import PurchaseList from './components/Purchases/PurchaseList';
+import PurchaseCreate from './components/Purchases/PurchaseCreate';
+import PurchaseEdit from './components/Purchases/PurchaseEdit';
+import PurchaseShow from './components/Purchases/PurchaseShow';
 import RoleList from './components/Roles/RoleList';
 import RoleShow from './components/Roles/RoleShow';
 import UserCreate from './components/Users/UserCreate';
@@ -95,6 +99,16 @@ const App = () => (
           create={checkAppAction(permissions.users, 'create') ? StoresCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? StoresEdit : null}
           options={{ label: 'Магазины' }}
+        />
+      ) : null,
+      permissions.users ? (
+        <Resource
+          name="purchases"
+          list={PurchaseList}
+          show={PurchaseShow}
+          create={checkAppAction(permissions.users, 'create') ? PurchaseCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? PurchaseEdit : null}
+          options={{ label: 'Закупки' }}
         />
       ) : null,
     ]}
