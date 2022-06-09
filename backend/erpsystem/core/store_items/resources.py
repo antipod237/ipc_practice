@@ -9,7 +9,10 @@ from ..utils import (
     get_one,
 )
 from ..models import StoreItemsModel, PermissionAction
-from .utils import is_store_exists, is_value_fit_in
+from .utils import (
+    is_store_exists, is_value_fit_in,
+    is_store_item_exists, is_value_correct
+)
 
 permissions = Permissions(app_name='store_items')
 
@@ -62,11 +65,13 @@ class StoreItems(HTTPEndpoint):
         'name': {
             'required': True,
             'type': str,
-            'max_length': 100
+            'max_length': 100,
+            'name': True
         },
         'value': {
-            'required': True,
-            'type': int
+            'required': False,
+            'type': int,
+            'value': True
         },
         'max_value': {
             'required': True,
@@ -78,10 +83,20 @@ class StoreItems(HTTPEndpoint):
             'store_id': True
         },
     }, custom_checks={
+        'name': {
+            'func': lambda z, *args: is_store_item_exists(z),
+            'message': lambda z, *args: f'Товар с `name` `{z}`'
+            f' уже существует.'
+        },
         'store_id': {
             'func': lambda v, *args: is_store_exists(v),
             'message': lambda v, *args: f'Магазин с `id` `{v}`'
             f' не существует.'
+        },
+        'value': {
+            'func': lambda z, *args: is_value_correct(z),
+            'message': lambda z, *args: f'`{z}` не является корректным'
+            f' количеством, сделайте его не отрицательным'
         }
     })
     async def post(self, data):
@@ -97,7 +112,7 @@ class StoreItems(HTTPEndpoint):
         exeption_value = data['value']
         return make_error(
             f'Невозможно добавить {exeption_value}, '
-            f'сделайте колличество меньше',
+            f'впишите иное количество',
             status_code=400
         )
 
@@ -123,8 +138,9 @@ class StoreItem(HTTPEndpoint):
             'max_length': 100
         },
         'value': {
-            'required': True,
-            'type': int
+            'required': False,
+            'type': int,
+            'value': True
         },
         'max_value': {
             'required': True,
@@ -140,6 +156,11 @@ class StoreItem(HTTPEndpoint):
                 'func': lambda v, *args: is_store_exists(v),
                 'message': lambda v, *args: f'Магащин с `id` `{v}`'
                 f' не существует.'
+            },
+            'value': {
+                'func': lambda z, *args: is_value_correct(z),
+                'message': lambda z, *args: f'`{z}` не является корректным'
+                f' количеством, сделайте его не отрицательным'
             }
     }, return_request=True)
     async def patch(self, request, data):
@@ -173,7 +194,7 @@ class StoreItem(HTTPEndpoint):
         exeption_value = data['value']
         return make_error(
             f'Невозможно добавить {exeption_value}, '
-            f'сделайте колличество меньше',
+            f'впишите иное количество',
             status_code=400
         )
 

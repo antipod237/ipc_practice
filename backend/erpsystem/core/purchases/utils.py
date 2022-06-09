@@ -19,3 +19,9 @@ async def update_store_items(new_value, store_item_id):
         updated_value = store_item.value + new_value
 
         await store_item.update(value=updated_value).apply()
+
+
+async def check_positive_value(value):
+    if value > 0:
+        return True
+    return False
