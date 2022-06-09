@@ -31,6 +31,10 @@ import UserCreate from './components/Users/UserCreate';
 import UserEdit from './components/Users/UserEdit';
 import UserList from './components/Users/UserList';
 import UserShow from './components/Users/UserShow';
+import StoreItemsCreate from './components/Store_items/Store_itemsCreate';
+import StoreItemsEdit from './components/Store_items/Store_itemsEdit';
+import StoreItemsList from './components/Store_items/Store_itemsList';
+import StoreItemsShow from './components/Store_items/Store_itemsShow';
 import { checkAppAction } from './utils';
 
 const i18nProvider = polyglotI18nProvider(() => russianMessages, 'ru');
@@ -109,6 +113,16 @@ const App = () => (
           create={checkAppAction(permissions.users, 'create') ? PurchaseCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? PurchaseEdit : null}
           options={{ label: 'Закупки' }}
+        />
+      ) : null,
+      permissions.users ? (
+        <Resource
+          name="storeitems"
+          list={StoreItemsList}
+          show={StoreItemsShow}
+          create={checkAppAction(permissions.users, 'create') ? StoreItemsCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? StoreItemsEdit : null}
+          options={{ label: 'Товары' }}
         />
       ) : null,
     ]}
