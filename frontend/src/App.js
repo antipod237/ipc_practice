@@ -25,6 +25,10 @@ import PurchaseList from './components/Purchases/PurchaseList';
 import PurchaseCreate from './components/Purchases/PurchaseCreate';
 import PurchaseEdit from './components/Purchases/PurchaseEdit';
 import PurchaseShow from './components/Purchases/PurchaseShow';
+import SalesCreate from './components/Sales/SalesCreate';
+import SalesList from './components/Sales/SalesList';
+import SalesEdit from './components/Sales/SalesEdit';
+import SalesShow from './components/Sales/SalesShow';
 import RoleList from './components/Roles/RoleList';
 import RoleShow from './components/Roles/RoleShow';
 import UserCreate from './components/Users/UserCreate';
@@ -82,7 +86,7 @@ const App = () => (
           show={SuppliersShow}
           create={checkAppAction(permissions.users, 'create') ? SuppliersCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? SuppliersEdit : null}
-          options={{ label: 'Партнеры' }}
+          options={{ label: 'Поставщики' }}
         />
       ) : null,
       permissions.users ? (
@@ -113,6 +117,16 @@ const App = () => (
           create={checkAppAction(permissions.users, 'create') ? PurchaseCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? PurchaseEdit : null}
           options={{ label: 'Закупки' }}
+        />
+      ) : null,
+      permissions.users ? (
+        <Resource
+          name="sales"
+          list={SalesList}
+          show={SalesShow}
+          create={checkAppAction(permissions.users, 'create') ? SalesCreate : null}
+          edit={checkAppAction(permissions.users, 'update') ? SalesEdit : null}
+          options={{ label: 'Продажи' }}
         />
       ) : null,
       permissions.users ? (
