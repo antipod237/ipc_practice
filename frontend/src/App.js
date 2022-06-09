@@ -82,7 +82,7 @@ const App = () => (
           show={SuppliersShow}
           create={checkAppAction(permissions.users, 'create') ? SuppliersCreate : null}
           edit={checkAppAction(permissions.users, 'update') ? SuppliersEdit : null}
-          options={{ label: 'Партнеры' }}
+          options={{ label: 'Поставщики' }}
         />
       ) : null,
       permissions.users ? (

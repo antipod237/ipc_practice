@@ -2,9 +2,10 @@ import React from 'react';
 import {
   Show, SimpleShowLayout, TextField, ArrayField, Datagrid,
 } from 'react-admin';
+import { EntityTitle } from '../utils';
 
 const ItemSetsShow = (props) => (
-  <Show {...props} title="Подробнее о номенклатуре">
+  <Show {...props} title={<EntityTitle filedName="name" />}>
     <SimpleShowLayout>
       <TextField source="id" label="Идентификатор" />
       <TextField source="name" label="Название" />

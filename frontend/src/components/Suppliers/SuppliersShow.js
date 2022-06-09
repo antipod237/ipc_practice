@@ -2,9 +2,10 @@ import React from 'react';
 import {
   Show, SimpleShowLayout, TextField,
 } from 'react-admin';
+import { EntityTitle } from '../utils';
 
 const SuppliersShow = (props) => (
-  <Show {...props} title="Подробнее о поставщике">
+  <Show {...props} title={<EntityTitle filedName="name" />}>
     <SimpleShowLayout>
       <TextField source="id" label="Идентификатор" />
       <TextField source="name" label="Название" />
