@@ -38,7 +38,7 @@ class Sales(HTTPEndpoint):
     async def post(self, data):
         if await is_value_correct(data['store_item_id'], data['value']):
             sale = await SalesModel.create(
-                item_set_id=data['store_item_id'],
+                store_item_id=data['store_item_id'],
                 value=data['value'],
                 date=get_date(data['date'])
             )
