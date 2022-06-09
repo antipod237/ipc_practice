@@ -7,7 +7,8 @@ from ..database import db
 from ..utils import (
     with_transaction, jwt_required, make_response,
     make_list_response, validation, make_error,
-    Permissions, GinoQueryHelper, NO_CONTENT, get_date
+    Permissions, GinoQueryHelper, NO_CONTENT, get_date,
+    check_positive_value
 )
 from ..models import (
     SalesModel, StoreItemsModel,
@@ -28,11 +29,18 @@ class Sales(HTTPEndpoint):
         },
         'value': {
             'required': True,
-            'type': int
+            'type': int,
+            'value': True
         },
         'date': {
             'required': True,
             'type': str
+        }
+    }, custom_checks={
+        'value': {
+            'func': lambda v, *args: check_positive_value(v),
+            'message': lambda v, *args: f'`{v}` не является корректным'
+            f' количеством, сделайте его положительным'
         }
     })
     async def post(self, data):
@@ -48,7 +56,7 @@ class Sales(HTTPEndpoint):
         exeption_value = data['value']
         return make_error(
             f'Невозможно продать {exeption_value}, '
-            f'сделайте колличество меньше',
+            f'впишите иное количество',
             status_code=400
         )
 
@@ -123,11 +131,18 @@ class Sale(HTTPEndpoint):
         },
         'value': {
             'required': True,
-            'type': int
+            'type': int,
+            'value': True
         },
         'date': {
             'required': True,
             'type': str
+        }
+    }, custom_checks={
+        'value': {
+            'func': lambda v, *args: check_positive_value(v),
+            'message': lambda v, *args: f'`{v}` не является корректным'
+            f' количеством, сделайте его положительным'
         }
     }, return_request=True)
     async def patch(self, request, data):
@@ -159,7 +174,7 @@ class Sale(HTTPEndpoint):
             exeption_value = data['value']
             return make_error(
                 f'Невозможно продать {exeption_value}, '
-                f'сделайте колличество меньше',
+                f'впишите иное количество',
                 status_code=400
             )
 

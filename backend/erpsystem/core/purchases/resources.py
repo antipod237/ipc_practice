@@ -7,7 +7,8 @@ from ..database import db
 from ..utils import (
     with_transaction, jwt_required, make_response,
     make_list_response, validation, make_error,
-    Permissions, GinoQueryHelper, NO_CONTENT, get_date
+    Permissions, GinoQueryHelper, NO_CONTENT, get_date,
+    check_positive_value
 )
 from ..models import (
     PurchaseModel, ItemSetModel,
@@ -29,7 +30,8 @@ class Purchases(HTTPEndpoint):
         },
         'value': {
             'required': True,
-            'type': int
+            'type': int,
+            'value': True
         },
         'date': {
             'required': True,
@@ -46,6 +48,12 @@ class Purchases(HTTPEndpoint):
         'is_complete': {
             'required': False,
             'type': bool
+        }
+    }, custom_checks={
+        'value': {
+            'func': lambda v, *args: check_positive_value(v),
+            'message': lambda v, *args: f'`{v}` не является корректным'
+            f' количеством, сделайте его положительным'
         }
     })
     async def post(self, data):
@@ -65,7 +73,7 @@ class Purchases(HTTPEndpoint):
         exeption_value = data['value']
         return make_error(
             f'Невозможно добавить {exeption_value}, '
-            f'сделайте колличество меньше',
+            f'впишите иное количество',
             status_code=400
         )
 
@@ -159,7 +167,8 @@ class Purchase(HTTPEndpoint):
         },
         'value': {
             'required': True,
-            'type': int
+            'type': int,
+            'value': True
         },
         'date': {
             'required': True,
@@ -176,6 +185,12 @@ class Purchase(HTTPEndpoint):
         'is_complete': {
             'required': False,
             'type': bool
+        }
+    }, custom_checks={
+        'value': {
+            'func': lambda v, *args: check_positive_value(v),
+            'message': lambda v, *args: f'`{v}` не является корректным'
+            f' количеством, сделайте его положительным'
         }
     }, return_request=True)
     async def patch(self, request, data):
@@ -214,7 +229,7 @@ class Purchase(HTTPEndpoint):
             exeption_value = data['value']
             return make_error(
                 f'Невозможно добавить {exeption_value}, '
-                f'сделайте колличество меньше',
+                f'впишите иное количество',
                 status_code=400
             )
 
